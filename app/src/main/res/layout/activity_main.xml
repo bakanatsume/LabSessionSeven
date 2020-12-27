@@ -8,13 +8,24 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <ListView
-        android:id="@+id/listView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="300sp">
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/txtDetails"
+        android:layout_width="match_parent"
+        android:layout_height="100sp"
+        />
+    <Button
+        android:id="@+id/btnAdd"
+        android:text="Add Student"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
