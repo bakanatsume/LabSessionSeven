@@ -55,7 +55,7 @@ class FormActivity : AppCompatActivity(), View.OnClickListener {
                 val address = txtAddress.text.toString()
                 val number = txtAddress.text.toString()
 
-                var student = (StudentDetails(name,address,number,gender))
+                var student = StudentDetails(name,address,number,gender)
 
                 var intent = Intent()
                 intent.putExtra("getDetails",student)

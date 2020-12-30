@@ -24,17 +24,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         btnAdd = findViewById(R.id.btnAdd)
 
 
-        val adapter = ArrayAdapter(
-            this,
-            android.R.layout.simple_list_item_1,
-            getDetails
-        )
 
-        listView.adapter = adapter
-
-        listView.setOnItemClickListener { parent, view, position, id ->
-            txtDetails.text =parent.getItemAtPosition(position).toString()
-        }
         btnAdd.setOnClickListener(this)
     }
 
@@ -48,9 +38,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(resultCode==1){
+        if(requestCode==1){
             if(resultCode==Activity.RESULT_OK){
-                data?.getSerializableExtra("getDetails")
+                var student = data?.getSerializableExtra("getDetails") as StudentDetails
+                getDetails.add(student)
+                val adapter = ArrayAdapter(
+                        this,
+                        android.R.layout.simple_list_item_1,
+                        getDetails
+                )
+
+                listView.adapter = adapter
+
+                listView.setOnItemClickListener { parent, view, position, id ->
+                    txtDetails.text =parent.getItemAtPosition(position).toString()
+                }
             }
         }
     }

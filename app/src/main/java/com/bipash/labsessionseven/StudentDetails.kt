@@ -10,6 +10,6 @@ class StudentDetails(
 ):Serializable {
 
     override fun toString(): String {
-        return name
+        return name + " " + address
     }
 }
